@@ -1,40 +1,94 @@
-let computerSelection = function getComputerChoice() {
-  let computerChoice = Math.floor(Math.random() * 3);
-  switch (computerChoice) {
-    case 0:
-      computerChoice = "Rock";
-      break;
-    case 1:
-      computerChoice = "Paper";
-      break;
-    case 2:
-      computerChoice = "Scissors";
-      break;
-  }
-  return computerChoice;
+const selection = document.querySelector(".player");
+const playerButtons = document.querySelectorAll(".p-button");
+const winImg = "./images/Win.JPG";
+const loseImg = "./images/Lose.JPG";
+const drawImg = "./images/Default.JPG";
+let playerScore = 0;
+let cpuScore = 0;
+
+const cpuOptions = ["computer-rock", "computer-paper", "computer-scissors"];
+
+const outcomeText = {
+  win: "YOU WIN!",
+  lose: "YOU LOSE!",
+  draw: "IT'S A DRAW!",
+  default: "CHOOSE!",
+  playerRound: "PLAYER WINS!",
+  cpuRound: "COMPUTER WINS!",
 };
 
-function playRound(playerSelection, computerSelection) {
-  if (playerSelection == "Rock" && computerSelection == "Scissors") {
-    return `You Win! ${playerSelection} beats ${computerSelection}`;
-  } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-    return `You Win! ${playerSelection} beats ${computerSelection}`;
-  } else if (playerSelection == "Paper" && computerSelection == "Rock") {
-    return `You Win! ${playerSelection} beats ${computerSelection}`;
-  } else if (playerSelection == computerSelection) {
-    return `It's a Draw`;
-  } else return `You Lost! ${computerSelection} beats ${playerSelection}`;
-}
+const winCondition = new Map()
+  .set("player-rock", "computer-scissors")
+  .set("player-paper", "computer-rock")
+  .set("player-scissors", "computer-paper");
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    let choice = prompt("Rock Paper or Scissors");
-    let playerSelection =
-      choice.charAt(0).toUpperCase() + choice.slice(1).toLowerCase();
-    console.log(`Round ${i + 1}`);
-    console.log(playerSelection);
-    console.log(playRound(playerSelection, computerSelection()));
+const drawCondition = new Map()
+  .set("player-rock", "computer-rock")
+  .set("player-paper", "computer-paper")
+  .set("player-scissors", "computer-scissors");
+
+selection.addEventListener("click", playerSelection);
+
+function playerSelection(e) {
+  if (e.target !== e.currentTarget) {
+    let selectedButton = e.target.id;
+    playRound(selectedButton, cpuSelection());
   }
+  e.stopPropagation();
 }
 
-game();
+function cpuSelection() {
+  let cpuChoice = Math.floor(Math.random() * 3);
+  return cpuOptions[cpuChoice];
+}
+
+function playRound(player, computer) {
+  animation(player, computer);
+  if (winCondition.get(player) === computer) {
+    win();
+  } else if (drawCondition.get(player) === computer) {
+    draw();
+  } else lose();
+}
+
+function win() {
+  playerScore++;
+  if (playerScore === 5) {
+    outcomeUpdate(winImg, outcomeText.playerRound);
+    setTimeout(reset, 1000);
+  } else outcomeUpdate(winImg, outcomeText.win);
+}
+
+function lose() {
+  cpuScore++;
+  if (cpuScore === 5) {
+    outcomeUpdate(loseImg, outcomeText.cpuRound);
+    setTimeout(reset, 1000);
+  } else outcomeUpdate(loseImg, outcomeText.lose);
+}
+
+function draw() {
+  outcomeUpdate(drawImg, outcomeText.draw);
+}
+
+function outcomeUpdate(outcomeImg, outcomeText) {
+  document.querySelector(".p-score").textContent = playerScore;
+  document.querySelector(".cpu-score").textContent = cpuScore;
+  document.querySelector(".outcome-desc").textContent = outcomeText;
+  document.querySelector(".outcome").src = outcomeImg;
+}
+
+function reset() {
+  playerScore = 0;
+  cpuScore = 0;
+  outcomeUpdate(drawImg, outcomeText.default);
+}
+
+function animation(player, computer) {
+  document.getElementById(player).classList.add("rotate");
+  document.getElementById(computer).classList.add("rotate");
+  setTimeout(() => {
+    document.getElementById(player).classList.remove("rotate");
+    document.getElementById(computer).classList.remove("rotate");
+  }, 1000);
+}
