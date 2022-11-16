@@ -90,6 +90,11 @@ img {
   height: 200px;
   border-radius: 50%;
   border: solid;
+  color: var(--secondary-clr-1);
+}
+
+.outcome {
+  color: var(--primary-clr-1);
 }
 
 .img-container {
@@ -102,6 +107,7 @@ img {
 
 .p-btn:hover {
   cursor: pointer;
+  color: var(--primary-clr-1);
 }
 
 button {
@@ -131,6 +137,7 @@ button:active {
 
 .rotate {
   animation: rotation 1s infinite linear;
+  color: var(--primary-clr-1);
 }
 
 @keyframes rotation {
@@ -144,7 +151,7 @@ button:active {
 
 @media screen and (max-width: 800px) {
   * {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
     text-align: center;
   }
 
@@ -164,6 +171,11 @@ button:active {
 
 @media screen and (max-width: 375px) {
   .card {
-    min-width: 365px;
+    min-width: 300px;
+  }
+
+  img {
+    width: 70px;
+    height: 70px;
   }
 }
