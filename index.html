@@ -1,63 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
-      rel="stylesheet"
-    />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Odin Rock Paper Scissors</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Rock Paper Scissors</title>
   </head>
   <body>
     <main>
-      <h1 class="header">ROCK PAPERS SCISSORS</h1>
-      <article class="card">
-        <div class="img-container player">
-          <h2 class="sub-header">PLAYER</h2>
-          <img
-            class="p-btn"
-            id="player-rock"
-            src="./images/Rock.JPG"
-            alt="Rock"
-          />
-          <img
-            class="p-btn"
-            id="player-paper"
-            src="./images/Paper.JPG"
-            alt="Paper"
-          />
-          <img
-            class="p-btn"
-            id="player-scissors"
-            src="./images/Scissors.JPG"
-            alt="Scissors"
-          />
+      <article id="game-board">
+        <div id="player">
+          <div class="avatar">
+            <div class="placeholder-portrait"></div>
+          </div>
+          <div class="menu">
+            <button>SWORD</button>
+            <button>SHIELD</button>
+            <button>CROSSBOW</button>
+          </div>
         </div>
-        <div class="card-center">
-          <img class="outcome" src="./images/Default.JPG" />
-          <p class="outcome-desc">CHOOSE!</p>
-          <p class="score-label">PLAYER-SCORE<span class="p-score">0</span></p>
-          <p class="score-label">
-            COMPUTER-SCORE<span class="cpu-score">0</span>
-          </p>
+        <div id="battleground">
+          <div id="player-side"></div>
+          <div id="cpu-side"></div>
         </div>
-        <div class="img-container computer">
-          <h2 class="sub-header">COMPUTER</h2>
-          <img id="computer-rock" src="./images/Rock.JPG" alt="Rock" />
-          <img id="computer-paper" src="./images/Paper.JPG" alt="Paper" />
-          <img
-            id="computer-scissors"
-            src="./images/Scissors.JPG"
-            alt="Scissors"
-          />
+        <div id="cpu">
+          <div class="menu">
+            <button>SWORD</button>
+            <button>SHIELD</button>
+            <button>CROSSBOW</button>
+          </div>
+          <div class="avatar">
+            <div class="placeholder-portrait"></div>
+          </div>
         </div>
       </article>
     </main>
-    <script src="script.js"></script>
   </body>
 </html>

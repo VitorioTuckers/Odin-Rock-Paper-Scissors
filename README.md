@@ -10,4 +10,4 @@ Open the following link on your preferred browser:
 
 ## Description
 
-This is a simple vanilla Javascript Rock-Paper-Scissors game. You play it by clicking the image on the left side correspoding to your choice (Rock,Paper or Scissors), the score goes up to 5 then it resets. The images used for the rock, paper and scissors sprites are my own hand aswell as the ones for the win and lose conditions, the image for the draw condition are of my dog (Gaia) and my cat (Steiner).
+Placeholder

@@ -1,181 +1,53 @@
-:root {
-  font-family: "Bungee", cursive;
-  color: var(--primary-clr-1);
-  --primary-clr-1: #faed26;
-  --secondary-clr-1: #46344e;
-  --primary-clr-2: #5a5560;
-  --secondary-clr-2: #9d8d8f;
-  --secondary-clr-3: #9b786f;
-}
-
-*,
 *::before,
-*::after {
+*::after,
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-body {
-  background-color: var(--primary-clr-2);
+#game-board {
   height: 100vh;
+  width: 100vw;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+#game-board > div,
+#battleground > div {
+  flex: 1;
+  border: solid 1px;
 }
 
-.header {
-  font-size: 3rem;
-}
-
-.sub-header {
-  font-size: 1.25rem;
-}
-
-.card,
-.card-center {
-  padding: 1rem;
-  border-radius: 1rem;
-}
-
-.card {
-  background-color: var(--secondary-clr-2);
-  width: 90vw;
-  display: flex;
-  justify-content: space-around;
-}
-
-.card-center {
-  background-color: var(--secondary-clr-1);
+#battleground {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
 }
 
-.middle {
+#player,
+#cpu {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-.play {
-  font-size: 3rem;
-}
-
-.top,
-.bottom {
-  gap: 0.5rem;
-}
-
-.outcome-desc,
-.p-score,
-.cpu-score,
-.score-label {
-  font-size: 1.5rem;
-  text-align: center;
-  display: block;
-}
-
-img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  border: solid;
-  color: var(--secondary-clr-1);
-}
-
-.outcome {
-  color: var(--primary-clr-1);
-}
-
-.img-container {
+.avatar,
+.menu {
+  width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  justify-content: center;
   align-items: center;
+  border: solid 1px;
 }
 
-.p-btn:hover {
-  cursor: pointer;
-  color: var(--primary-clr-1);
+.placeholder-portrait {
+  width: 80%;
+  height: 80%;
+  border: solid;
 }
 
 button {
-  color: var(--primary-clr-1);
-  background-color: var(--secondary-clr-3);
-  border-radius: 1rem;
   border: solid;
-  font-family: "Bungee", cursive;
-  font-size: 1rem;
-  margin: 0.5rem;
-  padding: 0.5rem;
-}
-
-button:hover,
-button:active {
-  cursor: pointer;
-}
-
-button:active {
-  background-color: var(--primary-clr-1);
-  color: #000000;
-}
-
-.hidden {
-  visibility: hidden;
-}
-
-.rotate {
-  animation: rotation 1s infinite linear;
-  color: var(--primary-clr-1);
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
-}
-
-@media screen and (max-width: 800px) {
-  * {
-    font-size: 0.4rem;
-    text-align: center;
-  }
-
-  span {
-    font-size: 1.5rem;
-  }
-
-  .card {
-    min-width: 98vw;
-  }
-
-  img {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .card {
-    min-width: 300px;
-  }
-
-  img {
-    width: 70px;
-    height: 70px;
-  }
+  margin: 0.25rem;
+  width: 30%;
+  height: 30%;
 }
