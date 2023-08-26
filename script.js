@@ -1,6 +1,6 @@
 const playerMenu = document.querySelector('#player-menu');
 const cpuMenu = document.querySelector('#cpu-menu');
-const outcomeText = document.querySelector('#outcome-text');
+let playerChoice;
 
 function getComputerChoice() {
   randomNum = Math.floor(Math.random() * 3);
@@ -21,18 +21,28 @@ function playRound(playerChoice, cpuChoice) {
   return outcome;
 }
 
-function displayOutcome(outcome) {
-  outcomeText.textContent = outcome ? 'YOU WON' : 'YOU LOST';
+function resetStyle() {
+  playerMenu.style.backgroundColor = 'white';
+  cpuMenu.style.backgroundColor = 'white';
+}
 
-  outcomeText.classList.remove('hidden');
-  outcomeText.classList.add('outcome-text-animation');
-
-  setTimeout(() => {
-    outcomeText.classList.add('hidden');
-    outcomeText.classList.remove('outcome-text-animation');
-  }, 3000);
+function displayWinner(outcome) {
+  if (outcome) {
+    playerMenu.style.backgroundColor = 'green';
+    cpuMenu.style.backgroundColor = 'red';
+  } else {
+    cpuMenu.style.backgroundColor = 'green';
+    playerMenu.style.backgroundColor = 'red';
+  }
 }
 
 playerMenu.addEventListener('click', e => {
-  displayOutcome(playRound(e.target.id, getComputerChoice()));
+  if (e.target.id === 'player-menu') {
+    return null;
+  } else {
+    playerChoice = e.target.id;
+    outcome = playRound(playerChoice, getComputerChoice());
+    displayWinner(outcome);
+    setTimeout(resetStyle, 1000);
+  }
 });
