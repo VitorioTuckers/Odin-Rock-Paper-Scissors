@@ -21,11 +21,6 @@ function playRound(playerChoice, cpuChoice) {
   return outcome;
 }
 
-function resetStyle() {
-  playerMenu.style.backgroundColor = 'white';
-  cpuMenu.style.backgroundColor = 'white';
-}
-
 function displayWinner(outcome) {
   if (outcome) {
     playerMenu.style.backgroundColor = 'green';
@@ -43,6 +38,5 @@ playerMenu.addEventListener('click', e => {
     playerChoice = e.target.id;
     outcome = playRound(playerChoice, getComputerChoice());
     displayWinner(outcome);
-    setTimeout(resetStyle, 1000);
   }
 });
