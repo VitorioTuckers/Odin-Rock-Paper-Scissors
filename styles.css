@@ -4,12 +4,14 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-size: 14px;
 }
 
 #game-board {
   height: 100vh;
   width: 100vw;
   display: flex;
+  pointer-events: none;
 }
 
 #game-board > div,
@@ -50,4 +52,45 @@ button {
   margin: 0.25rem;
   width: 30%;
   height: 30%;
+  pointer-events: auto;
+}
+
+#player-side,
+#cpu-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-board > #outcome {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.outcome-text-animation {
+  animation: fadeInOut 3s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+#outcome-text.hidden {
+  display: none;
+}
+
+#outcome-text {
+  font-size: 8rem;
+  pointer-events: none;
 }

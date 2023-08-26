@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="./script.js"></script>
     <link rel="stylesheet" href="./styles.css" />
     <title>Rock Paper Scissors</title>
   </head>
@@ -14,25 +15,28 @@
           <div class="avatar">
             <div class="placeholder-portrait"></div>
           </div>
-          <div class="menu">
-            <button>SWORD</button>
-            <button>SHIELD</button>
-            <button>CROSSBOW</button>
+          <div class="menu" id="player-menu">
+            <button class="sword" id="player-mace">SWORD</button>
+            <button class="shield" id="player-shield">SHIELD</button>
+            <button class="crossbow" id="player-crossbow">CROSSBOW</button>
           </div>
         </div>
         <div id="battleground">
-          <div id="player-side"></div>
-          <div id="cpu-side"></div>
+          <div id="player-side">SWORD</div>
+          <div id="cpu-side">SHIELD</div>
         </div>
         <div id="cpu">
-          <div class="menu">
-            <button>SWORD</button>
-            <button>SHIELD</button>
-            <button>CROSSBOW</button>
+          <div class="menu" id="cpu-menu">
+            <button class="sword" id="cpu-mace">SWORD</button>
+            <button class="shield" id="cpu-shield">SHIELD</button>
+            <button class="crossbow" id="cpu-crossbow">CROSSBOW</button>
           </div>
           <div class="avatar">
             <div class="placeholder-portrait"></div>
           </div>
+        </div>
+        <div id="outcome">
+          <h1 id="outcome-text"></h1>
         </div>
       </article>
     </main>
